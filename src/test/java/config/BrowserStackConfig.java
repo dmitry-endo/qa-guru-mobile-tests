@@ -3,6 +3,7 @@ package config;
 import org.aeonbits.owner.Config;
 
 @Config.Sources({
+        "classpath:${env}.properties",
         "classpath:browserstack.properties"
 })
 public interface BrowserStackConfig extends Config {
@@ -19,7 +20,7 @@ public interface BrowserStackConfig extends Config {
     String app();
 
     @Key("deviceName")
-    @DefaultValue("Google Pixel 6")
+    @DefaultValue("Google Pixel 7 Pro")
     String deviceName();
 
     @Key("platformName")
