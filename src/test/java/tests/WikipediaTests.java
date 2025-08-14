@@ -10,7 +10,7 @@ import screens.SearchScreen;
 
 import static io.qameta.allure.Allure.step;
 
-public class SearchTests extends TestBase {
+public class WikipediaTests extends TestBase {
 
     MainScreen mainScreen = new MainScreen();
     SearchScreen searchScreen = new SearchScreen();
@@ -29,7 +29,8 @@ public class SearchTests extends TestBase {
     }
 
     @Test
-    void passGettingStartedWikipediaScreenTest() {
+    @DisplayName("Successful pass Getting Started screen test")
+    void passGettingStartedScreenTest() {
         String[] expectedTexts = {
                 "The Free Encyclopedia\n…in over 300 languages",
                 "New ways to explore",
