@@ -9,7 +9,6 @@ import static io.appium.java_client.AppiumBy.*;
 public class SearchScreen {
 
     private final SelenideElement searchInput = $(id("org.wikipedia.alpha:id/search_src_text"));
-//    private final ElementsCollection resultsCollection = $$(id("android.widget.TextView"));
     private final ElementsCollection resultsCollection = $$(id("org.wikipedia.alpha:id/search_results_list"));
 
     public void enterSearchQuery(String query) {
@@ -18,6 +17,5 @@ public class SearchScreen {
 
     public void shouldHaveResults() {
         resultsCollection.shouldHave(sizeGreaterThan(0));
-//        $$(className("android.widget.TextView")).shouldHave(sizeGreaterThan(0));
     }
 }

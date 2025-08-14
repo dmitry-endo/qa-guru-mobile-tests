@@ -24,14 +24,6 @@ public class GettingStartedScreen {
         }
     }
 
-    public void checkForOnboardingScreenOpened() {
-        onboardingWrapper.shouldBe(Condition.visible);
-    }
-    
-    public void clickSkip() {
-        skipButton.shouldBe(Condition.visible).click();
-    }
-
     public void clickContinue() {
         continueButton.shouldBe(Condition.visible).click();
     }

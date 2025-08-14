@@ -20,7 +20,7 @@ public class WikipediaTests extends TestBase {
     @ParameterizedTest(name = "Search query: {0}")
     @DisplayName("Search query should have results")
     void successfulWikipediaSearchTest(String inputQuery) {
-        step("Skip onboarding screen before test if present", gettingStartedScreen::skipOnboardingIfPresent);
+        step("Skip onboarding before test if present", gettingStartedScreen::skipOnboardingIfPresent);
 
         step("Open the search and type: {0}", () -> {
             mainScreen.clickSearchIcon();
