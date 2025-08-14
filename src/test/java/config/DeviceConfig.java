@@ -3,8 +3,9 @@ package config;
 import org.aeonbits.owner.Config;
 
 @Config.Sources({
-        "classpath:${env}.properties",
-        "classpath:config/remote.properties"
+//        "classpath:config/${env}.properties",
+//        "classpath:config/local.properties",
+        "classpath:config/local.properties"
 })
 public interface DeviceConfig extends Config {
 
@@ -24,7 +25,6 @@ public interface DeviceConfig extends Config {
     String getApp();
 
     @Key("deviceName")
-//    @DefaultValue("Google Pixel 7 Pro")
     String getDeviceName();
 
     @Key("platformName")

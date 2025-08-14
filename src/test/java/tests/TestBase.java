@@ -6,6 +6,7 @@ import com.codeborne.selenide.logevents.SelenideLogger;
 import config.DeviceConfig;
 import config.ConfigReader;
 import drivers.BrowserStackDriver;
+import drivers.BrowserStackDriverModified;
 import drivers.LocalDriver;
 import helpers.Attachments;
 import io.appium.java_client.android.AndroidDriver;
@@ -25,20 +26,11 @@ public class TestBase {
 
     @BeforeAll
     static void baseConfigSetup() {
-//        switch (config.getEnv()) {
-//            case "local":
-//                Configuration.browser = LocalDriver.class.getName();
-//            case "browserStack":
-//                Configuration.browser = BrowserStackDriver.class.getName();
-//        }
-
-        if (Objects.equals(config.getEnv(), "local")) {
-            Configuration.browser = LocalDriver.class.getName();
+        if (Objects.equals(config.getEnv(), "remote")) {
+            Configuration.browser = BrowserStackDriverModified.class.getName();
         } else {
-            Configuration.browser = BrowserStackDriver.class.getName();
+            Configuration.browser = LocalDriver.class.getName();
         }
-
-//        Configuration.browser = BrowserStackDriver.class.getName();
         Configuration.browserSize = null;
         Configuration.timeout = 10000;
     }
@@ -50,7 +42,7 @@ public class TestBase {
     }
 
     @AfterEach
-    void addAttachments() {
+    void shutdown() {
         AndroidDriver driver = (AndroidDriver) WebDriverRunner.getWebDriver();
 
         Attachments.attachScreenshot(driver);
@@ -58,10 +50,12 @@ public class TestBase {
         Attachments.attachLogs("Test finished on device: " +
                 driver.getCapabilities().getCapability("deviceName"));
 
-//        String sessionId = driver.getSessionId().toString();
-//        Attachments.addVideo(sessionId,
-//                config.getUsername(),
-//                config.getAccessKey());
+        if (Objects.equals(config.getEnv(), "remote")) {
+            String sessionId = driver.getSessionId().toString();
+            Attachments.addVideo(sessionId,
+                    config.getUsername(),
+                    config.getAccessKey());
+        }
         closeWebDriver();
     }
 }
