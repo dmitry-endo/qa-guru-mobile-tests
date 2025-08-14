@@ -24,7 +24,7 @@ public interface DeviceConfig extends Config {
     String getApp();
 
     @Key("deviceName")
-    @DefaultValue("Google Pixel 7 Pro")
+//    @DefaultValue("Google Pixel 7 Pro")
     String getDeviceName();
 
     @Key("platformName")
@@ -43,6 +43,5 @@ public interface DeviceConfig extends Config {
     String getSessionName();
 
     @Key("remoteUrl")
-//    @DefaultValue("https://hub.browserstack.com/wd/hub")
     String getRemoteUrl();
 }
