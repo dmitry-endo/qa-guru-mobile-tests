@@ -11,7 +11,7 @@ public class MainScreen {
     private final SelenideElement mainPageWrapper = $(id("org.wikipedia.alpha:id/action_bar_root"));
     private final SelenideElement searchWikiWrapper = $(id("Search Wikipedia"));
 
-    public void checkMainScreenOpened() {
+    public void verifyMainScreenHasOpened() {
         mainPageWrapper.shouldBe(Condition.visible);
     }
 

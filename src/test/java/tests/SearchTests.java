@@ -30,23 +30,26 @@ public class SearchTests extends TestBase {
 
     @Test
     void passGettingStartedWikipediaScreenTest() {
+        String[] expectedTexts = {
+                "The Free Encyclopedia\n…in over 300 languages",
+                "New ways to explore",
+                "Reading lists with sync",
+                "Data & Privacy"
+        };
 
-        gettingStartedScreen
-                .primaryTextShouldHaveExpectedValue("The Free Encyclopedia\n…in over 300 languages")
-                .clickContinue();
+        for (int i = 0; i < expectedTexts.length; i++) {
+            int stepIndex = i; // effectively final for lambda
+            step("Check onboarding screen text: " + expectedTexts[stepIndex], () -> {
+                gettingStartedScreen.primaryTextShouldHaveExpectedValue(expectedTexts[stepIndex]);
+            });
 
-        gettingStartedScreen
-                .primaryTextShouldHaveExpectedValue("New ways to explore")
-                .clickContinue();
+            if (i < expectedTexts.length - 1) {
+                step("Click Continue", gettingStartedScreen::clickContinue);
+            } else {
+                step("Click Get Started", gettingStartedScreen::clickGetStarted);
+            }
+        }
 
-        gettingStartedScreen
-                .primaryTextShouldHaveExpectedValue("Reading lists with sync")
-                .clickContinue();
-
-        gettingStartedScreen
-                .primaryTextShouldHaveExpectedValue("Data & Privacy")
-                .clickGetStarted();
-
-        mainScreen.checkMainScreenOpened();
+        step("Verify that main screen has opened", mainScreen::verifyMainScreenHasOpened);
     }
 }
