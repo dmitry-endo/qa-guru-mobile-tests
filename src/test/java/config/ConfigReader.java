@@ -5,7 +5,7 @@ import org.aeonbits.owner.ConfigFactory;
 
 public class ConfigReader {
     @Getter
-    private static final BrowserStackConfig browserStackConfig =
-            ConfigFactory.create(BrowserStackConfig.class, System.getProperties());
+    private static final DeviceConfig deviceConfig =
+            ConfigFactory.create(DeviceConfig.class, System.getProperties());
 
 }

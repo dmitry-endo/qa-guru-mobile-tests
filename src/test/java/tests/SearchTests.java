@@ -1,6 +1,7 @@
 package tests;
 
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 import screens.MainScreen;
@@ -23,5 +24,10 @@ public class SearchTests extends TestBase {
         });
 
         step("Verify content found", searchScreen::shouldHaveResults);
+    }
+
+    @Test
+    void passOnboardingScreenTest() {
+
     }
 }
