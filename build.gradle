@@ -50,6 +50,10 @@ dependencies {
     )
 }
 
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8' // Fixes Cyrillic/Unicode chars
+}
+
 tasks.withType(Test) {
     useJUnitPlatform()
     systemProperties(System.getProperties())
@@ -59,5 +63,17 @@ tasks.withType(Test) {
             events "started", "skipped", "failed", "standard_error", "standard_out"
             exceptionFormat "short"
         }
+    }
+}
+
+task onboarding_tests(type: Test) {
+    useJUnitPlatform {
+        includeTags("onboarding_tests")
+    }
+}
+
+task search_tests(type: Test) {
+    useJUnitPlatform {
+        includeTags("search_tests")
     }
 }

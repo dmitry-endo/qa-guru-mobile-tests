@@ -12,7 +12,7 @@ import static io.qameta.allure.Allure.step;
 @Tag("onboarding_tests")
 @Owner("dmitry_endo")
 @DisplayName("Wikipedia android app tests")
-public class OnboardingTests {
+public class OnboardingTests extends TestBase {
 
     MainScreen mainScreen = new MainScreen();
     OnboardingScreen onboardingScreen = new OnboardingScreen();
@@ -29,9 +29,8 @@ public class OnboardingTests {
 
         for (int i = 0; i < expectedTexts.length; i++) {
             int stepIndex = i; // effectively final for lambda
-            step("Check onboarding screen text: " + expectedTexts[stepIndex], () -> {
-                onboardingScreen.primaryTextShouldHaveExpectedValue(expectedTexts[stepIndex]);
-            });
+            step("Check onboarding screen text: " + expectedTexts[stepIndex], () ->
+                    onboardingScreen.primaryTextShouldHaveExpectedValue(expectedTexts[stepIndex]));
 
             if (i < expectedTexts.length - 1) {
                 step("Click Continue", onboardingScreen::clickContinue);
