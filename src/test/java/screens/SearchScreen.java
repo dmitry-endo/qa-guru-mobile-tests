@@ -1,5 +1,6 @@
 package screens;
 
+import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
@@ -17,5 +18,14 @@ public class SearchScreen {
 
     public void shouldHaveResults() {
         resultsCollection.shouldHave(sizeGreaterThan(0));
+        resultsCollection.first()
+                .$x(".//android.widget.TextView")
+                .shouldNotHave(Condition.text("No results"));
+    }
+
+    public void shouldHaveNoResults() {
+        resultsCollection.first()
+                .$x(".//android.widget.TextView")
+                .shouldHave(Condition.text("No results"));
     }
 }
