@@ -4,6 +4,7 @@ ___
 ```bash  
 appium server --base-path /wd/hub
 ```
+
 ```bash  
 gradle clean test -Denv=local
 ```
