@@ -6,7 +6,6 @@ import com.codeborne.selenide.logevents.SelenideLogger;
 import config.DeviceConfig;
 import config.ConfigReader;
 import drivers.BrowserStackDriver;
-import drivers.BrowserStackDriverModified;
 import drivers.LocalDriver;
 import helpers.Attachments;
 import io.appium.java_client.android.AndroidDriver;
@@ -27,7 +26,7 @@ public class TestBase {
     @BeforeAll
     static void baseConfigSetup() {
         if (Objects.equals(config.getEnv(), "remote")) {
-            Configuration.browser = BrowserStackDriverModified.class.getName();
+            Configuration.browser = BrowserStackDriver.class.getName();
         } else {
             Configuration.browser = LocalDriver.class.getName();
         }

@@ -1,44 +1,69 @@
 package drivers;
 
 import com.codeborne.selenide.WebDriverProvider;
-import config.DeviceConfig;
 import config.ConfigReader;
+import config.DeviceConfig;
 import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.android.options.UiAutomator2Options;
 import org.openqa.selenium.Capabilities;
-import org.openqa.selenium.MutableCapabilities;
 import org.openqa.selenium.WebDriver;
+
 import javax.annotation.Nonnull;
 import java.net.MalformedURLException;
 import java.net.URL;
+
+import static io.appium.java_client.remote.AutomationName.ANDROID_UIAUTOMATOR2;
+import static io.appium.java_client.remote.MobilePlatform.ANDROID;
 
 public class BrowserStackDriver implements WebDriverProvider {
 
     private static final DeviceConfig config = ConfigReader.getDeviceConfig();
 
-    @Override
     @Nonnull
+    @Override
     public WebDriver createDriver(@Nonnull Capabilities capabilities) {
-        MutableCapabilities caps = new MutableCapabilities();
+        UiAutomator2Options options = new UiAutomator2Options();
 
-        caps.setCapability("app", config.getApp());
-        caps.setCapability("deviceName", config.getDeviceName());
-        caps.setCapability("platformName", config.getPlatformName());
-        caps.setCapability("platformVersion", config.getPlatformVersion());
-        caps.setCapability("browserstackLocal", true);
+        options.setAutomationName(ANDROID_UIAUTOMATOR2)
+                .setPlatformName(ANDROID)
+                .setPlatformVersion(config.getPlatformVersion())
+                .setDeviceName(config.getDeviceName())
+                .setApp(config.getApp()) // BrowserStack app URL or ID
+                .setAppPackage("org.wikipedia.alpha")
+                .setAppActivity("org.wikipedia.main.MainActivity");
 
-        MutableCapabilities bstackOptions = new MutableCapabilities();
-        bstackOptions.setCapability("userName", config.getUsername());
-        bstackOptions.setCapability("accessKey", config.getAccessKey());
-        bstackOptions.setCapability("projectName", config.getProjectName());
-        bstackOptions.setCapability("buildName", config.getBuildName());
-        bstackOptions.setCapability("sessionName", config.getSessionName());
-        bstackOptions.setCapability("video", true);
+        // BrowserStack-specific options
+        options.setCapability("bstack:options", getBrowserStackOptions());
 
-        caps.setCapability("bstack:options", bstackOptions);
+        return new AndroidDriver(getBrowserStackUrl(), options);
+    }
+
+    private URL getBrowserStackUrl() {
         try {
-            return new AndroidDriver(new URL(config.getRemoteUrl()), caps);
+            return new URL(config.getRemoteUrl());
         } catch (MalformedURLException e) {
-            throw new RuntimeException("Invalid URL for BrowserStack", e);
+            throw new RuntimeException("Invalid BrowserStack URL", e);
         }
+    }
+
+    private BrowserStackOptions getBrowserStackOptions() {
+        BrowserStackOptions bstackOptions = new BrowserStackOptions();
+        bstackOptions.setUserName(config.getUsername());
+        bstackOptions.setAccessKey(config.getAccessKey());
+        bstackOptions.setProjectName(config.getProjectName());
+        bstackOptions.setBuildName(config.getBuildName());
+        bstackOptions.setSessionName(config.getSessionName());
+        bstackOptions.setVideo();
+        return bstackOptions;
+    }
+
+    // A simple inner helper to avoid polluting DeviceConfig
+    private static class BrowserStackOptions extends java.util.HashMap<String, Object> {
+        void setUserName(String userName) { put("userName", userName); }
+        void setAccessKey(String accessKey) { put("accessKey", accessKey); }
+        void setProjectName(String projectName) { put("projectName", projectName); }
+        void setBuildName(String buildName) { put("buildName", buildName); }
+        void setSessionName(String sessionName) { put("sessionName", sessionName); }
+        void setVideo() { put("video", true); }
     }
 }
