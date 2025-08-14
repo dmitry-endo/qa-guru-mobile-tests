@@ -14,8 +14,6 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 
-import java.util.Objects;
-
 import static com.codeborne.selenide.Selenide.closeWebDriver;
 import static com.codeborne.selenide.Selenide.open;
 
@@ -25,7 +23,7 @@ public class TestBase {
 
     @BeforeAll
     static void baseConfigSetup() {
-        if (Objects.equals(config.getEnv(), "remote")) {
+        if (config.isRemote()) {
             Configuration.browser = BrowserStackDriver.class.getName();
         } else {
             Configuration.browser = LocalDriver.class.getName();
@@ -49,7 +47,7 @@ public class TestBase {
         Attachments.attachLogs("Test finished on device: " +
                 driver.getCapabilities().getCapability("deviceName"));
 
-        if (Objects.equals(config.getEnv(), "remote")) {
+        if (config.isRemote()) {
             String sessionId = driver.getSessionId().toString();
             Attachments.addVideo(sessionId,
                     config.getUsername(),

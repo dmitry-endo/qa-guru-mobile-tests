@@ -6,7 +6,7 @@ import com.codeborne.selenide.SelenideElement;
 import static com.codeborne.selenide.Selenide.$;
 import static io.appium.java_client.AppiumBy.id;
 
-public class GettingStartedScreen {
+public class OnboardingScreen {
 
     private final SelenideElement primaryTextView = $(id("org.wikipedia.alpha:id/primaryTextView"));
     private final SelenideElement onboardingWrapper = $(id("org.wikipedia.alpha:id/fragment_onboarding_pager_container"));

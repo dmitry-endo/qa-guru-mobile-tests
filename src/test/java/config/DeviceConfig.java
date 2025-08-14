@@ -2,35 +2,34 @@ package config;
 
 import org.aeonbits.owner.Config;
 
+@Config.LoadPolicy(Config.LoadType.MERGE)
 @Config.Sources({
-//        "classpath:config/${env}.properties",
+//        "system:properties",
+        "classpath:config/${env}.properties",
 //        "classpath:config/local.properties",
-        "classpath:config/local.properties"
+//        "classpath:config/local.properties"
 })
 public interface DeviceConfig extends Config {
 
-    @Key("env")
-    @DefaultValue("local")
-    String getEnv();
+    @Key("isRemote")
+    @DefaultValue("false")
+    Boolean isRemote();
 
     @Key("username")
-    @DefaultValue("${BROWSERSTACK_USERNAME}")
     String getUsername();
 
     @Key("accessKey")
-    @DefaultValue("${BROWSERSTACK_ACCESS_KEY}")
     String getAccessKey();
 
     @Key("app")
     String getApp();
 
     @Key("deviceName")
+    @DefaultValue("Pixel_4")
     String getDeviceName();
 
-    @Key("platformName")
-    String getPlatformName();
-
     @Key("platformVersion")
+    @DefaultValue("11.0")
     String getPlatformVersion();
 
     @Key("projectName")
@@ -43,5 +42,6 @@ public interface DeviceConfig extends Config {
     String getSessionName();
 
     @Key("remoteUrl")
+    @DefaultValue("http://localhost:4723/wd/hub")
     String getRemoteUrl();
 }
