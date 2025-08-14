@@ -46,5 +46,7 @@ public class SearchTests extends TestBase {
         gettingStartedScreen
                 .primaryTextShouldHaveExpectedValue("Data & Privacy")
                 .clickGetStarted();
+
+        mainScreen.checkMainScreenOpened();
     }
 }

@@ -58,10 +58,10 @@ public class TestBase {
         Attachments.attachLogs("Test finished on device: " +
                 driver.getCapabilities().getCapability("deviceName"));
 
-        String sessionId = driver.getSessionId().toString();
-        Attachments.addVideo(sessionId,
-                config.getUsername(),
-                config.getAccessKey());
+//        String sessionId = driver.getSessionId().toString();
+//        Attachments.addVideo(sessionId,
+//                config.getUsername(),
+//                config.getAccessKey());
         closeWebDriver();
     }
 }
