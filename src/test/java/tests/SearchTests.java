@@ -21,12 +21,12 @@ public class SearchTests extends TestBase {
     OnboardingScreen onboardingScreen = new OnboardingScreen();
 
     @ValueSource(strings = {"Appium", "Selenide"})
-    @ParameterizedTest(name = "Search query: {0}")
+    @ParameterizedTest(name = "\nSearch query: {0}")
     @DisplayName("Search query without mistypes should have results")
     void successfulWikipediaSearchTest(String inputQuery) {
         step("Skip onboarding before test if present", onboardingScreen::skipOnboardingIfPresent);
 
-        step("Open the search and type: {0}", () -> {
+        step("Open the search and type: " + inputQuery, () -> {
             mainScreen.clickSearchIcon();
             searchScreen.enterSearchQuery(inputQuery);
         });
@@ -35,12 +35,12 @@ public class SearchTests extends TestBase {
     }
 
     @ValueSource(strings = {"agfvszdffdsgv", "ilahgnoij iuehngroa"})
-    @ParameterizedTest(name = "Search query: {0}")
+    @ParameterizedTest(name = "\nSearch query: {0}")
     @DisplayName("Gibberish search query should have no results")
     void unsuccessfulWikipediaSearchTest(String inputQuery) {
         step("Skip onboarding before test if present", onboardingScreen::skipOnboardingIfPresent);
 
-        step("Open the search and type: {0}", () -> {
+        step("Open the search and type: " + inputQuery, () -> {
             mainScreen.clickSearchIcon();
             searchScreen.enterSearchQuery(inputQuery);
         });
