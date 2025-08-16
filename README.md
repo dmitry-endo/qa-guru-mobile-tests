@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://en.m.wikipedia.org/wiki/Main_Page" target="_blank">
-    <img src="media/logos/wikipedia_logo.svg.png" width="500" alt="Wikipedia Logo">
+    <img src="media/logos/wikipedia_logo.png" width="500" alt="Wikipedia Logo">
   </a>
 </p>
 
@@ -40,7 +40,7 @@ ____
 <a href="https://selenide.org/"><img src="media/logos/Selenide.svg" width="50" height="50"  alt="Selenide"/></a>  
 <a href="https://rest-assured.io/"><img src="media/logos/REST_Assured.png" width="50" height="50"  alt="REST Assured"/></a> 
 <a href="https://developer.android.com/studio"><img src="media/logos/Android_Studio.svg" width="50" height="50"  alt="Android Studio"/></a>
-<a href="https://github.com/appium/appium"><img src="media/logos/Appium.svg" width="50" height="50"  alt="Appium"/></a>
+<a href="https://github.com/appium/appium"><img src="media/logos/Appium.png" width="50" height="50"  alt="Appium"/></a>
 <a href="https://www.browserstack.com/"><img src="media/logos/BrowserStack.svg" width="50" height="50"  alt="BrowserStack"/></a>
 <a href="https://www.jenkins.io/"><img src="media/logos/Jenkins.svg" width="50" height="50"  alt="Jenkins"/></a>  
 <a href="https://github.com/allure-framework/allure2"><img src="media/logos/Allure.svg" width="50" height="50"  alt="Allure"/></a>
@@ -67,7 +67,7 @@ ____
 ## <img alt="Jenkins" height="25" src="media/logos/Jenkins.svg" width="25"/></a><a name="Сборка"></a> Jenkins [build](https://jenkins.autotests.cloud/job/C35-dmitry_endo-MobileTests/)</a>
 ____
 <p align="center">  
-<img src="media/results/jenkins_job.png" alt="Jenkins" width="850"/>  
+<img src="media/results/jenkins_job.png" alt="Jenkins" width="950"/>  
 </p>
 
 
