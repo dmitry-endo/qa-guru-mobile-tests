@@ -21,7 +21,7 @@ public class SearchTests extends TestBase {
     OnboardingScreen onboardingScreen = new OnboardingScreen();
 
     @ValueSource(strings = {"Appium", "Selenide"})
-    @ParameterizedTest(name = "\nSearch query: {0}")
+    @ParameterizedTest(name = "Search query: {0}")
     @DisplayName("Search query without mistypes should have results")
     void successfulWikipediaSearchTest(String inputQuery) {
         step("Skip onboarding before test if present", onboardingScreen::skipOnboardingIfPresent);
@@ -35,7 +35,7 @@ public class SearchTests extends TestBase {
     }
 
     @ValueSource(strings = {"agfvszdffdsgv", "ilahgnoij iuehngroa"})
-    @ParameterizedTest(name = "\nSearch query: {0}")
+    @ParameterizedTest(name = "Search query: {0}")
     @DisplayName("Gibberish search query should have no results")
     void unsuccessfulWikipediaSearchTest(String inputQuery) {
         step("Skip onboarding before test if present", onboardingScreen::skipOnboardingIfPresent);
