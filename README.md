@@ -92,7 +92,6 @@ clean test
 -DaccessKey=YOUR_ACCESS_KEY
 ```
 where <code>YOUR_USERNAME</code> & <code>YOUR_ACCESS_KEY</code> your BrowserStack credentials.
-___
 
 
 ___
