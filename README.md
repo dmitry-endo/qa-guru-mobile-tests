@@ -130,7 +130,7 @@ After the tests are completed: The Telegram bot sends a notification with the re
 
 ____
 <a id="video"></a>
-## <img alt="BrowserStack" height="25" src="media/logos/Selenoid.svg" width="25"/></a> BrowserStack test run video example
+## <img alt="BrowserStack" height="25" src="media/logos/BrowserStack.svg" width="25"/></a> BrowserStack test run video example
 ____
 
 A video of each test case run is attached to the report.
