@@ -39,10 +39,11 @@ ____
 <a href="https://gradle.org/"><img src="media/logos/Gradle.svg" width="50" height="50"  alt="Gradle"/></a>  
 <a href="https://selenide.org/"><img src="media/logos/Selenide.svg" width="50" height="50"  alt="Selenide"/></a>  
 <a href="https://rest-assured.io/"><img src="media/logos/REST_Assured.png" width="50" height="50"  alt="REST Assured"/></a> 
-<a href="https://www.browserstack.com/"><img src="media/logos/BrowserStack.svg" width="50" height="50"  alt="BrowserStack"/></a>
+<a href="https://developer.android.com/studio"><img src="media/logos/Android_Studio.svg" width="50" height="50"  alt="Android Studio"/></a>
 <a href="https://github.com/appium/appium"><img src="media/logos/Appium.svg" width="50" height="50"  alt="Appium"/></a>
+<a href="https://www.browserstack.com/"><img src="media/logos/BrowserStack.svg" width="50" height="50"  alt="BrowserStack"/></a>
 <a href="https://www.jenkins.io/"><img src="media/logos/Jenkins.svg" width="50" height="50"  alt="Jenkins"/></a>  
-<a href="ht[images](images)tps://github.com/allure-framework/allure2"><img src="media/logos/Allure.svg" width="50" height="50"  alt="Allure"/></a>
+<a href="https://github.com/allure-framework/allure2"><img src="media/logos/Allure.svg" width="50" height="50"  alt="Allure"/></a>
 </p>
 
 - The automated tests are written in <code>IntelliJ IDEA</code> in <code>Java</code> using the <code>Selenide</code>, <code>REST Assured</code>, and <code>JUnit 5</code> frameworks.
