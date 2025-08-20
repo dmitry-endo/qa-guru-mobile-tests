@@ -12,17 +12,11 @@
 ____
 
 * <a href="#tools">Technologies and tools</a>
-
 * <a href="#cases">Automated test-cases examples</a>
-
 * <a href="#jenkins">Jenkins build</a>
-
 * <a href="#console">Commands for running from the terminal</a>
-
 * <a href="#allure">Allure report</a>
-
 * <a href="#telegram">Telegram bot notification for Allure reports</a>
-
 * <a href="#video">BrowserStack test run video example</a>
 
 
